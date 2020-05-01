@@ -1,0 +1,192 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "version": "1.0",
+        "title": "SUM Service API by Anyungu",
+        "description": "Done in NodeJS",
+        "contact": {
+        "name": "Anyungu C",
+        "email": "anyungucw@gmail.com"
+        },
+        "basePath": "/",
+        "license": {
+            "name": "Not provided yet"
+            }
+    },
+    "servers": [
+        {
+        "url": "http://localhost:3000/",
+        "description": "Local server"
+        }
+    ],
+    "tags" : [
+        {
+            "name": "Metrics",
+            "description": "Endpoints For metrics"
+        }
+    ],
+    "paths" : {
+        "/metric/{key}": {
+
+            "post" : {
+                "tags": [
+                    "Metrics"
+                ],
+                "description": "Add a Value",
+                "operationId": "postMetric",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "string"
+                          },
+                        "requied": true
+                    }
+                ],
+                "requestBody": {
+                    "content" : {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/PostMetricRequest"
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "200" : {
+                        "description": "Metric Saved",
+                        "content" : {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#components/schemas/SuccessMessage"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Metric Not Saved",
+                        "content" : {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#components/schemas/Error"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Metric Not Saved",
+                        "content" : {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+
+        "/metric/{key}/sum": {
+            "get": {
+
+                "tags": [
+                    "Metrics"
+                ],
+                "description": "Add a Value",
+                "operationId": "postMetric",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "default": "string"
+                          },
+                        "requied": true
+                    }
+                ],
+
+                "responses" : {
+                    "200" : {
+                        "description": "Metric Sum Found",
+                        "content" : {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#components/schemas/GetMetricResult"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Metric Sum Not Found",
+                        "content" : {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#components/schemas/Error"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Metric Sum Not Found",
+                        "content" : {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    },
+
+    "components": {
+        "schemas": {
+            "SuccessMessage": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              },
+              "Error": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                }
+            },
+            "PostMetricRequest": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                      "type": "number",
+                      "default": 0
+                    }
+                  }
+            },
+            "GetMetricResult": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "number"
+                    }
+
+                }
+            }
+        }
+    }
+
+}
