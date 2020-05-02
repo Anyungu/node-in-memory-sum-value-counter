@@ -16,7 +16,7 @@ import { cacheStart } from './config/cache.mjs';
 
 
 const app = express();
-const PORT = 3000;
+const PORT = 9200;
 
 
 
@@ -40,5 +40,5 @@ app.use((req, res, next) => {
 
 
 app.listen(process.env.PORT || PORT, () => {
-     console.log('listening..... 3000')
+     console.log('listening..... 9200')
 })

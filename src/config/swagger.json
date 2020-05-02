@@ -17,6 +17,14 @@
         {
         "url": "http://localhost:3000/",
         "description": "Local server"
+        },
+        {
+            "url": "http://40.121.22.120:9200/",
+            "description": "Azure VM"
+        },
+        {
+            "url": "https://glacial-everglades-13629.herokuapp.com/",
+            "description": "heroku"
         }
     ],
     "tags" : [
