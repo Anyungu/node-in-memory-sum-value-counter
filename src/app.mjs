@@ -33,9 +33,9 @@ app.use('/', restRouter)
 
 app.use((req, res, next) => {
     const error = new Error('Not Found'); 
-    error.message = 'Invalid Route';
+    error.message = 'Invalid Route, Try url/api-docs to view the swagger docs';
     error.status = 404;
-    next(error);
+    next(error.message);
 });
 
 
