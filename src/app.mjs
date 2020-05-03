@@ -14,13 +14,13 @@ import {restRouter} from './api/index.mjs';
 import { cacheStart } from './config/cache.mjs';
 
 
-app.use(cors())
+
 
 const app = express();
 const PORT = 9200;
 
 
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
