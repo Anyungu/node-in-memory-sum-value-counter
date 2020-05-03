@@ -71,8 +71,7 @@ export async function getMetric(req, res) {
 
         }
 
-
-        return res.send({ message: "Values Found!", data: cacheResponse.value});
+        return res.send({ message: "Values Found!", data: `Sum of values for the key ${req.params.key} is ${cacheResponse.value}`});
     }
     catch(err) {
         return res.status(500).send({error: err.message});
