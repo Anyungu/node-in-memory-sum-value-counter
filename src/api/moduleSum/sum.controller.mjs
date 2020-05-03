@@ -28,12 +28,12 @@ export async function postMetric(req, res) {
 
         //validation Failed
         if (resultBody.error !== null) {
-            return res.status(400).send({error: resultBody.error});
+            return res.status(200).send({error: resultBody.error});
         }
 
         //validation Failed
         if (resultParams.error !== null) {
-            return res.status(400).send({error: resultParams.error});
+            return res.status(200).send({error: resultParams.error});
         }
 
 
@@ -43,7 +43,7 @@ export async function postMetric(req, res) {
      
         if (cacheResponse && cacheResponse.error) {
 
-            return res.status(400).send({error: cacheResponse.error});
+            return res.status(200).send({error: cacheResponse.error});
 
         }
 
@@ -67,7 +67,7 @@ export async function getMetric(req, res) {
 
         if (cacheResponse && cacheResponse.error) {
 
-            return res.status(400).send({error: cacheResponse.error});
+            return res.status(200).send({error: cacheResponse.error});
 
         }
 
