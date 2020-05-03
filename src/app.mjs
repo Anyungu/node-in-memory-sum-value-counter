@@ -6,14 +6,15 @@ const require = createRequire(import.meta.url);
 
 
 const express = require('express');
+var cors = require('cors')
 
 
 
 import {restRouter} from './api/index.mjs';
 import { cacheStart } from './config/cache.mjs';
-// import * as cors from 'cors';
 
 
+app.use(cors())
 
 const app = express();
 const PORT = 9200;
