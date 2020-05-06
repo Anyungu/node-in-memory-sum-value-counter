@@ -54,7 +54,7 @@ export async function getCacheData(value) {
                     .filter( key =>  raw[key].metric === value)
                     .reduce( (obj, key) => {
                         proc.sum = initialSum + raw[key].value; 
-                        initialSum = raw[key].value; 
+                        initialSum =  initialSum + raw[key].value; 
                         return proc;
                     }, {});
 
