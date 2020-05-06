@@ -42,7 +42,6 @@ export async function getCacheData(value) {
 
     try {
 
-
         var x = globalThis.nodeCacheInstance;
 
         let keys = x.keys();

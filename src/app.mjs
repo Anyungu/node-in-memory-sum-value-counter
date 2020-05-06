@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url);
 
 
 const express = require('express');
-var cors = require('cors')
+var cors = require('cors');
 
 
 
